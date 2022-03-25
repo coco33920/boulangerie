@@ -1,0 +1,4 @@
+name: Name
+authors: [Author Name]
+description: e #here is what your addon do
+depend: [] #here you specify the dependancies
