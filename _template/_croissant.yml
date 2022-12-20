@@ -1,0 +1,5 @@
+name: Name
+authors: [Author Name]
+description: My Addon Do This #here is what your addon do
+github: username/repo
+depend: [] #here you specify the dependancies
