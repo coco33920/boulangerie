@@ -10,8 +10,9 @@ license: "MIT"
 homepage: "https://www.baguettesharp.fr"
 bug-reports: "https://github.com/coco33920/croissant/issues"
 depends: [
-  "ocaml" {>= "4.08.0"}
+  "ocaml"
   "dune" {>= "3.0"}
+  "yaml"
   "odoc" {with-doc}
 ]
 build: [
