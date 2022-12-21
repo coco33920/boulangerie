@@ -6,7 +6,7 @@ type cmd_conf = Init of init_conf | Exec of exec_conf
 
 let run cmd =
   match cmd with
-  | Init _ -> print_endline "init!"
+  | Init f -> Croissant.Initializer.init f.git
   | Exec _ -> print_endline "exec!"
 
 let git_term =
@@ -29,7 +29,8 @@ let init_doc = "initialize an empty croissant project in the current folder"
 
 let init_man =
   [
-    `S Manpage.s_description; `P "Let you initialize an empty croissant project in the current folder";
+    `S Manpage.s_description;
+    `P "Let you initialize an empty croissant project in the current folder";
   ]
 
 let init run =
