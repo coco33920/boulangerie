@@ -4,7 +4,7 @@ Creates a new croissant project
 let init git =
   print_endline "Downloading file from github...";
   Sys.command
-    "wget https://raw.githubusercontent.com/coco33920/croissant/master/_template/_croissant.yml"
+    "wget -q https://raw.githubusercontent.com/coco33920/croissant/master/_template/_croissant.yml"
   |> ignore;
   print_endline "file downloaded";
   if git then (
