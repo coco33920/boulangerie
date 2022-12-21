@@ -15,6 +15,7 @@ depends: [
   "yaml"
   "baguette_sharp"
   "cmdliner"
+  "ocamlnet"
   "odoc" {with-doc}
 ]
 build: [

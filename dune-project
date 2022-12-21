@@ -18,6 +18,6 @@
  (name croissant)
  (synopsis "B# Package Manager")
  (description "The World's first exotic language package manager: CROISSANT made for Baguette# (mostly as a joke)")
- (depends ocaml dune yaml baguette_sharp cmdliner))
+ (depends ocaml dune yaml baguette_sharp cmdliner ocamlnet))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project

@@ -25,11 +25,11 @@ let exec_term run =
   let combine verbose = Exec { verbose } |> run in
   Term.(const combine $ bar_term)
 
-let init_doc = "initialize an empty croissant project"
+let init_doc = "initialize an empty croissant project in the current folder"
 
 let init_man =
   [
-    `S Manpage.s_description; `P "Let you initialize an empty croissant project";
+    `S Manpage.s_description; `P "Let you initialize an empty croissant project in the current folder";
   ]
 
 let init run =
