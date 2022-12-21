@@ -1,7 +1,7 @@
 # Welcome to Croissant
 Welcome to *croissant* the first exotic language package manager!
 
-## Features
+## Features
 Currently implemented are
 * `croissant init` which initialize a new croissant project in the current repository
 
