@@ -3,8 +3,8 @@ Creates a new croissant project
 *)
 let init git =
   print_endline "Downloading file from github...";
-  Nethttp_client.Convenience.http_get
-    "https://raw.githubusercontent.com/coco33920/croissant/master/_template/_croissant.yml"
+  Sys.command
+    "wget https://raw.githubusercontent.com/coco33920/croissant/master/_template/_croissant.yml"
   |> ignore;
   print_endline "file downloaded";
   if git then (
