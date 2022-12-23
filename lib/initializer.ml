@@ -22,4 +22,4 @@ let init git =
   Printf.fprintf oc "%s\n"
     "CROISSANT CHOUQUETTE PARISBREST Hello World PARISBREST CLAFOUTIS BAGUETTE";
   close_out oc;
-  print_endline "Croissant project initialized" end;
+  print_endline "Boulangerie project initialized" end;
