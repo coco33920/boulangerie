@@ -13,12 +13,12 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Croissant, The Baguette# Package Manager
-email: croissant@baguettesharp.fr
+title: Boulangerie, The Baguette# Package Manager
+email: boulangerie@baguettesharp.fr
 description: >- # this means to ignore newlines until "baseurl:"
-  Croissant is the first exotic language package manager in the world, see why with this awful project ;)
+  Boulangerie is the first exotic language package manager in the world, see why no one did one with this awful project ;)
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://croissant.baguettesharp.fr" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://boulangerie.baguettesharp.fr" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: coco33920
 github_username:  coco33920
 
