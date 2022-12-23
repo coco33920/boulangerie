@@ -6,7 +6,7 @@ type cmd_conf = Init of init_conf | Exec of exec_conf
 
 let run cmd =
   match cmd with
-  | Init f -> Croissant.Initializer.init f.git
+  | Init f -> Boulangerie.Initializer.init f.git
   | Exec _ -> print_endline "exec!"
 
 let git_term =
@@ -25,32 +25,32 @@ let exec_term run =
   let combine verbose = Exec { verbose } |> run in
   Term.(const combine $ bar_term)
 
-let init_doc = "initialize an empty croissant project in the current folder"
+let init_doc = "initialize an empty boulangerie project in the current folder"
 
 let init_man =
   [
     `S Manpage.s_description;
-    `P "Let you initialize an empty croissant project in the current folder";
+    `P "Let you initialize an empty boulangerie project in the current folder";
   ]
 
 let init run =
-  let info = Cmd.info "init" ~doc:init_doc ~man:init_man in
+  let info = Cmd.info "enter" ~doc:init_doc ~man:init_man in
   Cmd.v info (init_term run)
 
-let exec_doc = "execute a croissant project"
+let exec_doc = "execute a boulangerie project"
 
 let exec_man =
   [
     `S Manpage.s_description;
-    `P "Execute a croissant project with the Baguette# interpreter";
+    `P "Execute a boulangerie project with the Baguette# interpreter";
   ]
 
 let exec run =
-  let info = Cmd.info "exec" ~doc:exec_doc ~man:exec_man in
+  let info = Cmd.info "try" ~doc:exec_doc ~man:exec_man in
   Cmd.v info (exec_term run)
 
 let root_doc = "The Baguette# package and project manager"
-let root_info = Cmd.info "croissant" ~doc:root_doc
+let root_info = Cmd.info "boulangerie" ~doc:root_doc
 let subcommand run = [ init run; exec run ]
 
 let parse_command_line_and_run (run : cmd_conf -> unit) =
