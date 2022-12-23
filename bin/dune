@@ -1,4 +1,4 @@
 (executable
- (public_name croissant)
+ (public_name boulangerie)
  (name main)
- (libraries croissant cmdliner))
+ (libraries boulangerie cmdliner))

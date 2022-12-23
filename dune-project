@@ -1,6 +1,6 @@
 (lang dune 3.0)
 
-(name croissant)
+(name boulangerie)
 (version alpha-0.0.1)
 (generate_opam_files true)
 
@@ -15,9 +15,9 @@
 
 (homepage "https://croissant.baguettesharp.fr/")
 (package
- (name croissant)
+ (name boulangerie)
  (synopsis "B# Package Manager")
- (description "The World's first exotic language package manager: CROISSANT made for Baguette# (mostly as a joke)")
+ (description "The World's first exotic language package manager: BOULANGERIE made for Baguette# (mostly as a joke)")
  (depends ocaml dune yaml baguette_sharp cmdliner))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project

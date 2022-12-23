@@ -1,6 +1,6 @@
 let exists () = 
   try
-    open_in "_croissant.yml" |> ignore;
+    open_in "_boulangerie.yml" |> ignore;
     true
   with _ -> false;;
 
@@ -12,7 +12,7 @@ let init git =
   else begin
   print_endline "Downloading file from github...";
   Sys.command
-    "wget -q https://raw.githubusercontent.com/coco33920/croissant/master/_template/_croissant.yml"
+    "wget -q https://raw.githubusercontent.com/coco33920/croissant/master/_template/_boulangerie.yml"
   |> ignore;
   print_endline "file downloaded";
   if git then (
