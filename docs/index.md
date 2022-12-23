@@ -1,16 +1,17 @@
-# Welcome to Croissant
-Welcome to *croissant* the first exotic language package manager!
+# Welcome to Boulangerie, the Baguette# Package Manager
+Welcome to *boulangerie* the first exotic language package manager!
 
 ## Features
 Currently implemented are
-* `croissant init` which initialize a new croissant project in the current repository
+* `boulangerie enter` which initialize a new croissant project in the current repository
 
 ## TODO
-* `croissant exec` which execute with the baguettesharp executable the current project
-* `croissant install` which install libraries under the lib files
-* `croissant list` which list all available libraries
-* `croissant install --lib <library>` which install a library from the distant repository 
-* `croissant update` which updates the local list of library from the server
-* `croissant update --lib <library>` which install a library from the distant repository
-* `croissant upgrade` an alias for updating all currently installed libraries
-* `croissant publish` to publish your library!
+* `boulangerie try` which execute with the baguettesharp executable the current project
+* `boulangerie buy` which install libraries under the lib files
+* `boulangerie storefront` which list all available libraries
+* `boulangerie buy --lib <library>` which install a library from the distant repository 
+* `boulangerie sell --lib <library>` which remove the specified library
+* `boulangerie raise` which updates the local list of library from the server
+* `boulangerie raise --lib <library>` which install a library from the distant repository
+* `boulangerie knead` an alias for updating all currently installed libraries
+* `boulangerie bake` to publish your library!
