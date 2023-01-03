@@ -7,7 +7,7 @@ type cmd_conf = Init of init_conf | Exec of exec_conf
 let run cmd =
   match cmd with
   | Init f -> Boulangerie.Initializer.init f.git
-  | Exec _ -> print_endline "exec!"
+  | Exec _ -> Sys.command "baguette_sharp.repl --input lib.baguette" |> ignore
 
 let git_term =
   let info = Arg.info [ "git" ] ~doc:"Initialize an empty git repository" in
