@@ -1,6 +1,6 @@
 let home () = Sys.getenv "HOME";;
 let sep () = Filename.dir_sep;;
-let mkdir name = Sys.mkdir (home () ^ sep () ^ name) 0770;;
+let mkdir name = Sys.command ("mkdir -p " ^ (home () ^ sep () ^ name)) |> ignore;;
 let init_parent_file () = match Sys.file_exists (home () ^ sep () ^ ".boulangerie") with
   | false -> mkdir ".boulangerie"
   | true -> ();;
