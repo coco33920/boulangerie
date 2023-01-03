@@ -1,5 +1,6 @@
-name: Name
+name: Name #name your addon with only one word
 authors: [Author Name]
 description: My Addon Do This #here is what your addon do
 github: username/repo
+version: 0.1
 depend: [] #here you specify the dependancies

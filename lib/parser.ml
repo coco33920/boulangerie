@@ -1,1 +1,0 @@
-let test () = "Hello World"
