@@ -3,7 +3,7 @@ Welcome to *boulangerie* the first exotic language package manager!
 
 ## Features
 Currently implemented are
-* `boulangerie enter` which initialize a new croissant project in the current repository
+* `boulangerie enter` which initialize a new baguette project in the current repository
 
 ## TODO
 * `boulangerie try` which execute with the baguettesharp executable the current project
