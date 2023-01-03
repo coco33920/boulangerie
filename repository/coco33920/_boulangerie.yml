@@ -1,0 +1,7 @@
+name: Tartelettes #name your addon with only one word
+authors: [Charlotte Thomas]
+description: Add delicious tartelette to your meal! #here is what your addon do
+github: coco33920/tartelettes
+version: 0.1
+depend: [] #here you specify the dependancies
+url: https://github.com/coco33920/tartelettes/archive/refs/tags/0.1.zip
