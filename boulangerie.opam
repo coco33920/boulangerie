@@ -3,7 +3,7 @@ opam-version: "2.0"
 version: "alpha-0.0.1"
 synopsis: "B# Package Manager"
 description:
-  "The World's first exotic language package manager: CROISSANT made for Baguette# (mostly as a joke)"
+  "The World's first exotic language package manager: BOULANGERIE made for Baguette# (mostly as a joke)"
 maintainer: ["Charlotte Thomas"]
 authors: ["Charlotte Thomas"]
 license: "GPLv3"
