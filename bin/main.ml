@@ -9,7 +9,7 @@ let run cmd =
   match cmd with
   | Init f -> Boulangerie.Initializer.init f.git
   | Exec _ -> Sys.command "baguette_sharp.repl --input lib.baguette" |> ignore
-  | Install _ -> Boulangerie.Filemanager.init ();;
+  | Install i -> if i.lib=="" then Boulangerie.Filemanager.init () else ()
 
 let git_term =
   let info = Arg.info [ "git" ] ~doc:"Initialize an empty git repository" in
