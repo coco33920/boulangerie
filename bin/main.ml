@@ -9,7 +9,15 @@ let run cmd =
   match cmd with
   | Init f -> Boulangerie.Initializer.init f.git
   | Exec _ -> Sys.command "baguette_sharp.repl --input lib.baguette" |> ignore
-  | Install i -> if i.lib=="" then Boulangerie.Filemanager.init () else ()
+  | Install i -> if i.lib=="" then 
+    begin
+      let json = Boulangerie.Parseboulangerie.open_file () in 
+      let name = Boulangerie.Parseboulangerie.get_name json in
+      match Boulangerie.Parseboulangerie.is_installed name with
+      | false -> print_endline (name ^ " pas installé")
+      | true -> print_endline (name ^ " installé")
+    end
+  else ()
 
 let git_term =
   let info = Arg.info [ "git" ] ~doc:"Initialize an empty git repository" in

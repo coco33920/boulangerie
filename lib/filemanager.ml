@@ -10,7 +10,11 @@ let init_lib_file () = match Sys.file_exists (home () ^ sep () ^ ".boulangerie" 
   | true -> ();;
 
 let init_installed_file () = match Sys.file_exists (home () ^ sep () ^ ".boulangerie" ^ sep () ^ "installed.json") with
-  | false -> let o = open_out (home () ^ sep () ^ ".boulangerie" ^ sep () ^ "installed.json") in close_out o
+  | false -> let o = open_out (home () ^ sep () ^ ".boulangerie" ^ sep () ^ "installed.json") in 
+    Printf.fprintf o "%s\n" "{";
+    Printf.fprintf o "\t%s\n" "\"installed\":[]";
+    Printf.fprintf o "%s" "}";
+    close_out o;
   | true -> ();;
 
 let create_lib_dir name = match Sys.file_exists (home () ^ sep () ^ ".boulangerie" ^ sep () ^ "lib" ^ sep () ^ name) with
