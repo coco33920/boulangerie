@@ -1,6 +1,6 @@
 let exists () = 
   try
-    open_in "_boulangerie.yml" |> ignore;
+    open_in "_boulangerie.json" |> ignore;
     true
   with _ -> false;;
 
