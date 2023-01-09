@@ -13,4 +13,5 @@ let is_installed name =
 let install name = 
   Filemanager.create_lib_name_dir name;
   FileUtil.cp ["lib.baguette"] (Filemanager.file_in_lib_dir name "lib.baguette");
+  Filemanager.install_lib_dir name;
   print_endline ("Library " ^ name ^ " has been installed");; 

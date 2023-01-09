@@ -14,9 +14,7 @@ let run cmd =
       Boulangerie.Filemanager.init ();
       let json = Boulangerie.Parseboulangerie.open_file () in 
       let name = Boulangerie.Parseboulangerie.get_name json in
-      match Boulangerie.Parseboulangerie.is_installed name with
-      | false -> print_endline (name ^ " pas installé")
-      | true -> print_endline (name ^ " installé")
+      Boulangerie.Parseboulangerie.install name;
     end
   else ()
 
