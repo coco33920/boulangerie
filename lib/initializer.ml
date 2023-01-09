@@ -12,7 +12,7 @@ let init git =
   else begin
   print_endline "Downloading file from github...";
   Sys.command
-    "wget -q https://raw.githubusercontent.com/coco33920/croissant/install/_template/_boulangerie.json"
+    "wget -q https://raw.githubusercontent.com/coco33920/croissant/master/_template/_boulangerie.json"
   |> ignore;
   print_endline "file downloaded";
   if git then (
