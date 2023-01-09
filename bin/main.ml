@@ -14,7 +14,8 @@ let run cmd =
       Boulangerie.Filemanager.init ();
       let json = Boulangerie.Parseboulangerie.open_file () in 
       let name = Boulangerie.Parseboulangerie.get_name json in
-      Boulangerie.Parseboulangerie.install name;
+      let version = Boulangerie.Parseboulangerie.get_version json in
+      Boulangerie.Parseboulangerie.install name version;
     end
   else ()
 
