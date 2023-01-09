@@ -12,7 +12,8 @@ bug-reports: "https://github.com/coco33920/croissant/issues"
 depends: [
   "ocaml"
   "dune" {>= "3.0"}
-  "yaml"
+  "core"
+  "yojson"
   "baguette_sharp"
   "cmdliner"
   "odoc" {with-doc}
