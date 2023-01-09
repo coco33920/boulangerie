@@ -23,4 +23,4 @@ let create_lib_dir name = match Sys.file_exists (home () ^ sep () ^ ".boulangeri
 
 let file_in_lib_dir libname name = home () ^ sep () ^ ".boulangerie" ^ sep () ^ "lib" ^ libname ^ sep () ^ name;;
 let installed_file () = home () ^ sep () ^ ".boulangerie" ^ sep () ^ "installed.json"
-let init = init_parent_file (); init_lib_file (); init_installed_file;;
+let init () = init_parent_file (); init_lib_file (); init_installed_file ();;

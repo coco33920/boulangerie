@@ -11,6 +11,7 @@ let run cmd =
   | Exec _ -> Sys.command "baguette_sharp.repl --input lib.baguette" |> ignore
   | Install i -> if i.lib=="" then 
     begin
+      Boulangerie.Filemanager.init ();
       let json = Boulangerie.Parseboulangerie.open_file () in 
       let name = Boulangerie.Parseboulangerie.get_name json in
       match Boulangerie.Parseboulangerie.is_installed name with
