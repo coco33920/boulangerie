@@ -3,7 +3,7 @@
     "author": "Charlotte Thomas",
     "description": "Add delicious tartelette to your meal!",
     "github": "coco33920/tartelettes",
-    "version":0.3,
-    "depend": [],
-    "url": "https://github.com/coco33920/tartelettes/archive/refs/tags/0.3.zip"
+    "version":0.4,
+    "depends": [],
+    "url": "https://github.com/coco33920/tartelettes/archive/refs/tags/0.4.zip"
 }
