@@ -17,6 +17,7 @@ depends: [
   "baguette_sharp"
   "cmdliner"
   "str"
+  "fileutils"
   "odoc" {with-doc}
 ]
 build: [
