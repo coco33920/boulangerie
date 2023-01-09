@@ -5,8 +5,10 @@
 Welcome to the very early development of **Boulangerie** the package manager made for the *Baguette#* exotic programming language  
 The structure is heavily inspired by OPAM the OCaml Package Manager.
 
-## Features
+## Featuresinstall
 * `boulangerie enter` initialize a new project
+* `boulangerie try` execute the current project 
+* `boulangerie buy` install local libraries
 
 ## Usage
 To use it in a B# file you just need to do a `LOAD <library>`, and it will load all the files of the library,
