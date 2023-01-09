@@ -1,0 +1,8 @@
+{
+    "name":"Name",
+    "authors":"Authors",
+    "description":"Description of my addon",
+    "version":0.1,
+    "github":"author/repo",
+    "depends": ["dependancy1","dependancy2"]
+}
