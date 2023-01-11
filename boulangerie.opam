@@ -15,7 +15,6 @@ depends: [
   "core"
   "yojson"
   "cmdliner"
-  "str"
   "fileutils"
   "odoc" {with-doc}
 ]

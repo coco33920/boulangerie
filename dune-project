@@ -18,6 +18,6 @@
  (name boulangerie)
  (synopsis "B# Package Manager")
  (description "The World's first exotic language package manager: BOULANGERIE made for Baguette# (mostly as a joke)")
- (depends ocaml dune core yojson cmdliner str fileutils))
+ (depends ocaml dune core yojson cmdliner fileutils))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project
