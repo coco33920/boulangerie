@@ -5,7 +5,7 @@
 (generate_opam_files true)
 
 (source
- (github coco33920/croissant))
+ (github coco33920/boulangerie))
 
 (authors "Charlotte Thomas")
 
