@@ -26,11 +26,14 @@ let install_local name version =
   print_endline ("Library " ^ name ^ " has been installed")
 
 let install name github version =
-  let boulangerie_file = "https://github.com/coco33920/boulangerie/blob/master/repository/" ^ github ^ "/" ^ name ^ "/" ^ (version) ^ "boulangerie.json"
-  in Sys.command ("wget -q " ^ boulangerie_file) |> ignore;
-  let json = from_file "boulangerie.json" in 
-  let url = json |> member "url" |> to_string in 
+  let boulangerie_file =
+    "https://github.com/coco33920/boulangerie/blob/master/repository/" ^ github
+    ^ "/" ^ name ^ "/" ^ version ^ "boulangerie.json"
+  in
+  Sys.command ("wget -q " ^ boulangerie_file) |> ignore;
+  let json = from_file "boulangerie.json" in
+  let url = json |> member "url" |> to_string in
   Sys.command ("wget -q " ^ url) |> ignore;
-  Sys.command ("unzip " ^ ( version) ^ ".zip") |> ignore;
-  Sys.chdir ("" ^  version);
-  install_local name (float_of_string version);;
+  Sys.command ("unzip " ^ version ^ ".zip") |> ignore;
+  Sys.chdir ("" ^ version);
+  install_local name (float_of_string version)

@@ -21,14 +21,15 @@ let run cmd =
         let name = Boulangerie.Parseboulangerie.get_name json in
         let version = Boulangerie.Parseboulangerie.get_version json in
         Boulangerie.Parseboulangerie.install_local name version)
-      else 
-        if Boulangerie.Listfiles.exists i.lib then 
-          let n,version = Boulangerie.Listfiles.find_with_version i.lib in
-          let spl = String.split_on_char '/' n in 
-          let spl = Array.of_list spl in
-          let github,name = spl.(0),spl.(1) in
-          Boulangerie.Parseboulangerie.install name github version
-        else print_endline "this library does not exist you may update your local repository"
+      else if Boulangerie.Listfiles.exists i.lib then
+        let n, version = Boulangerie.Listfiles.find_with_version i.lib in
+        let spl = String.split_on_char '/' n in
+        let spl = Array.of_list spl in
+        let github, name = (spl.(0), spl.(1)) in
+        Boulangerie.Parseboulangerie.install name github version
+      else
+        print_endline
+          "this library does not exist you may update your local repository"
   | List -> Boulangerie.Listfiles.list_available_files_and_print_them ()
 
 let git_term =
