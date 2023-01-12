@@ -18,9 +18,12 @@ let is_installed name =
   | Some _ -> true
   | None -> false
 
-let install name version =
+let install_local name version =
   Filemanager.create_lib_name_dir name;
   FileUtil.cp [ "lib.baguette" ]
     (Filemanager.file_in_lib_dir name "lib.baguette");
   Filemanager.install_lib_dir name version;
   print_endline ("Library " ^ name ^ " has been installed")
+
+let install name =
+  let boulangerie_file = 

@@ -20,7 +20,7 @@ let run cmd =
         let json = Boulangerie.Parseboulangerie.open_file () in
         let name = Boulangerie.Parseboulangerie.get_name json in
         let version = Boulangerie.Parseboulangerie.get_version json in
-        Boulangerie.Parseboulangerie.install name version)
+        Boulangerie.Parseboulangerie.install_local name version)
       else ()
   | List -> Boulangerie.Listfiles.list_available_files_and_print_them ()
 
