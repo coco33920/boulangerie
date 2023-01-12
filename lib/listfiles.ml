@@ -37,3 +37,17 @@ let exists name =
     match str |> List.map transform_to_list |> List.find_opt (fun s -> String.equal s name) with
       | Some _ -> true
       | None -> false;;
+
+let find_with_version name = 
+  let transform_to_list s = 
+    let sv = String.split_on_char ':' s in 
+    (List.hd sv, List.hd (List.tl sv)) in
+  let str =
+    read_file
+      (Filemanager.home () ^ Filemanager.sep () ^ ".boulangerie"
+     ^ Filemanager.sep () ^ "repository.boulangerie")
+  in 
+    match str |> List.map transform_to_list |> List.find_opt (fun (s,_) -> String.equal s name) with
+      | Some (s,v) -> (s,v)
+      | None -> ("","");;
+

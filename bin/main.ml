@@ -22,7 +22,8 @@ let run cmd =
         let version = Boulangerie.Parseboulangerie.get_version json in
         Boulangerie.Parseboulangerie.install_local name version)
       else 
-        
+        if Boulangerie.Listfiles.exists i.lib then ()
+        else print_endline "this library does not exist you may update your local repository"
   | List -> Boulangerie.Listfiles.list_available_files_and_print_them ()
 
 let git_term =
