@@ -36,4 +36,6 @@ let install name github version =
   Sys.command ("wget -q " ^ url) |> ignore;
   Sys.command ("unzip " ^ version ^ ".zip") |> ignore;
   Sys.chdir ("" ^ version);
-  install_local name (float_of_string version)
+  install_local name (float_of_string version);
+  Sys.command ("rm -r " ^ version) |> ignore;
+  Sys.command ("rm -r boulangerie.json") |> ignore;
