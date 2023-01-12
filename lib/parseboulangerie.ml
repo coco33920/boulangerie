@@ -25,5 +25,12 @@ let install_local name version =
   Filemanager.install_lib_dir name version;
   print_endline ("Library " ^ name ^ " has been installed")
 
-let install name =
-  let boulangerie_file = 
+let install name github version =
+  let boulangerie_file = "https://github.com/coco33920/boulangerie/blob/master/repository/" ^ github ^ "/" ^ name ^ "/" ^ (string_of_float version) ^ "boulangerie.json"
+  in Sys.command ("wget -q " ^ boulangerie_file) |> ignore;
+  let json = from_file "boulangerie.json" in 
+  let url = json |> member "url" |> to_string in 
+  Sys.command ("wget -q " ^ url) |> ignore;
+  Sys.command ("unzip " ^ (string_of_float version) ^ ".zip") |> ignore;
+  Sys.chdir ("" ^ string_of_float version);
+  install_local name version;;
