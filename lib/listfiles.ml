@@ -23,12 +23,18 @@ let list_available_files_and_print_them () =
   in
   str
   |> List.map (fun s -> print_endline ("\027[38;2;195;239;195m" ^ s ^ "\027[m"))
-  |> ignore
+  |> ignore;;
+
+let find name eq =
+  let sv = String.split_on_char ':' name in
+  let s  = String.split_on_char '/' (List.hd sv) in
+  String.equal (List.hd s) eq;;
 
 let exists name =
   let transform_to_list s =
     let sv = String.split_on_char ':' s in
-    List.hd sv
+    let sv = String.split_on_char '/' (List.hd sv) in
+    List.hd (List.tl sv)
   in
   let str =
     read_file
@@ -37,10 +43,10 @@ let exists name =
   in
   match
     str |> List.map transform_to_list
-    |> List.find_opt (fun s -> String.equal s name)
+    |> List.find_opt (fun s -> find s name)
   with
   | Some _ -> true
-  | None -> false
+  | None -> false;;
 
 let find_with_version name =
   let transform_to_list s =
@@ -54,7 +60,7 @@ let find_with_version name =
   in
   match
     str |> List.map transform_to_list
-    |> List.find_opt (fun (s, _) -> String.equal s name)
+    |> List.find_opt (fun (s, _) -> find s name)
   with
-  | Some (s, v) -> (s, v)
-  | None -> ("", "")
+  | Some (s, v) -> print_endline s; (s, v)
+  | None -> ("", "");;

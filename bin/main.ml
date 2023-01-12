@@ -29,7 +29,7 @@ let run cmd =
         Boulangerie.Parseboulangerie.install name github version
       else
         print_endline
-          "this library does not exist you may update your local repository"
+          "this library does not exist you may need to update your local repository"
   | List -> Boulangerie.Listfiles.list_available_files_and_print_them ()
 
 let git_term =
