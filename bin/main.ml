@@ -22,7 +22,7 @@ let run cmd =
         let version = Boulangerie.Parseboulangerie.get_version json in
         Boulangerie.Parseboulangerie.install name version)
       else ()
-  | List -> ()
+  | List -> Boulangerie.Listfiles.list_available_files_and_print_them ();;
 
 let git_term =
   let info = Arg.info [ "git" ] ~doc:"Initialize an empty git repository" in
