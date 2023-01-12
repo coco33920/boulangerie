@@ -7,6 +7,14 @@ let init_parent_file () =
   | false -> mkdir ".boulangerie"
   | true -> ()
 
+let init_list_file () = 
+  match Sys.file_exists (home () ^ sep () ^ ".boulangerie" ^ sep () ^ "repository.boulangerie") with
+  | false -> 
+    Sys.command "wget -q https://raw.githubusercontent.com/coco33920/boulangerie/distant-list/repository/repository.boulangerie" |> ignore;
+    FileUtil.mv "repository.boulangerie" (home () ^ sep () ^ ".boulangerie" ^ sep () ^ "repository.boulangerie");
+    print_endline "list file downloaded"
+  | true -> ()
+
 let init_lib_file () =
   match
     Sys.file_exists (home () ^ sep () ^ ".boulangerie" ^ sep () ^ "lib")
@@ -41,4 +49,4 @@ let dirfile () = home () ^ sep () ^ ".boulangerie"
 
 let init () =
   init_parent_file ();
-  init_lib_file ()
+  init_lib_file ();

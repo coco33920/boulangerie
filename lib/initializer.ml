@@ -8,6 +8,7 @@ let exists () =
 Creates a new croissant project
 *)
 let init git =
+  Filemanager.init_list_file ();
   if exists () then print_endline "there already is a croissant project here"
   else (
     print_endline "Downloading file from github...";
