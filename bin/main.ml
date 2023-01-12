@@ -8,6 +8,7 @@ type cmd_conf =
   | Init of init_conf
   | Exec of exec_conf
   | Install of install_conf
+  | List
 
 let run cmd =
   match cmd with
@@ -21,6 +22,7 @@ let run cmd =
         let version = Boulangerie.Parseboulangerie.get_version json in
         Boulangerie.Parseboulangerie.install name version)
       else ()
+  | List -> ()
 
 let git_term =
   let info = Arg.info [ "git" ] ~doc:"Initialize an empty git repository" in
@@ -47,6 +49,10 @@ let exec_term run =
 let install_term run =
   let combine lib = Install { lib } |> run in
   Term.(const combine $ lib_term)
+
+let list_term run = 
+  let combine = List |> run in 
+  Term.(const combine)
 
 let init_doc = "initialize an empty boulangerie project in the current folder"
 
@@ -84,9 +90,19 @@ let install run =
   let info = Cmd.info "buy" ~doc:install_doc ~man:install_man in
   Cmd.v info (install_term run)
 
+let list_doc = "List the available dependancies"
+let list_man = 
+  [
+    `S Manpage.s_description;
+    `P "List the available packets in the repository"
+  ]
+let list run = 
+  let info = Cmd.info "storefront" ~doc:list_doc ~man:list_man in 
+  Cmd.v info (list_term run)
+ 
 let root_doc = "The Baguette# package and project manager"
 let root_info = Cmd.info "boulangerie" ~doc:root_doc
-let subcommand run = [ init run; exec run; install run ]
+let subcommand run = [ init run; exec run; install run; list run ]
 
 let parse_command_line_and_run (run : cmd_conf -> unit) =
   Cmd.group root_info (subcommand run) |> Cmd.eval |> exit
