@@ -30,10 +30,10 @@ let install name github version =
     "https://github.com/coco33920/boulangerie/blob/master/repository/" ^ github
     ^ "/" ^ name ^ "/" ^ version ^ "boulangerie.json"
   in
-  Sys.command ("wget -q " ^ boulangerie_file) |> ignore;
+  Sys.command ("wget " ^ boulangerie_file) |> ignore;
   let json = from_file "boulangerie.json" in
   let url = json |> member "url" |> to_string in
-  Sys.command ("wget -q " ^ url) |> ignore;
+  Sys.command ("wget " ^ url) |> ignore;
   Sys.command ("unzip " ^ version ^ ".zip") |> ignore;
   Sys.chdir ("" ^ version);
   install_local name (float_of_string version);
