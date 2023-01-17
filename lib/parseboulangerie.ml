@@ -27,8 +27,8 @@ let install_local name version =
 
 let install name github version =
   let boulangerie_file =
-    "https://raw.githubusercontent.com/coco33920/boulangerie/master/repository/" ^ github
-    ^ "/" ^ name ^ "/" ^ version ^ "/boulangerie.json"
+    "https://raw.githubusercontent.com/coco33920/boulangerie/master/repository/"
+    ^ github ^ "/" ^ name ^ "/" ^ version ^ "/boulangerie.json"
   in
   Sys.command ("wget -q " ^ boulangerie_file) |> ignore;
   let json = from_file "boulangerie.json" in
@@ -37,7 +37,7 @@ let install name github version =
   Sys.command ("unzip -q " ^ version ^ ".zip") |> ignore;
   Sys.chdir (name ^ "-" ^ version);
   install_local name (float_of_string version);
-  Sys.chdir ("../");
+  Sys.chdir "../";
   Sys.command ("rm -r " ^ version ^ ".zip") |> ignore;
   Sys.command ("rm -r " ^ name ^ "-" ^ version) |> ignore;
-  Sys.command ("rm -r boulangerie.json") |> ignore;
+  Sys.command "rm -r boulangerie.json" |> ignore

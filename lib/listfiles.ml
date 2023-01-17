@@ -18,21 +18,24 @@ let list_available_files_and_print_them color =
       (Filemanager.home () ^ Filemanager.sep () ^ ".boulangerie"
      ^ Filemanager.sep () ^ "repository.boulangerie")
   in
-  let () = if not (color) then 
-    print_endline
-      "\027[1;38;2;195;239;195m--- List of available dependancies ---\027[m"
-  else
-    print_endline "List of available dependancies" 
+  let () =
+    if not color then
+      print_endline
+        "\027[1;38;2;195;239;195m--- List of available dependancies ---\027[m"
+    else print_endline "List of available dependancies"
   in
   str
-  |> List.map (fun s -> if not color then print_endline ("\027[38;2;195;239;195m" ^ s ^ "\027[m") else print_endline s)
-  |> ignore;;
+  |> List.map (fun s ->
+         if not color then
+           print_endline ("\027[38;2;195;239;195m" ^ s ^ "\027[m")
+         else print_endline s)
+  |> ignore
 
-let find name eq v=
+let find name eq v =
   let sv = String.split_on_char ':' name in
-  let s  = String.split_on_char '/' (List.hd sv) in
+  let s = String.split_on_char '/' (List.hd sv) in
   let s = Array.of_list s in
-  String.equal (s.(v)) eq;;
+  String.equal s.(v) eq
 
 let exists name =
   let transform_to_list s =
@@ -46,11 +49,10 @@ let exists name =
      ^ Filemanager.sep () ^ "repository.boulangerie")
   in
   match
-    str |> List.map transform_to_list
-    |> List.find_opt (fun s -> find s name 0)
+    str |> List.map transform_to_list |> List.find_opt (fun s -> find s name 0)
   with
   | Some _ -> true
-  | None -> false;;
+  | None -> false
 
 let find_with_version name =
   let transform_to_list s =
@@ -67,4 +69,4 @@ let find_with_version name =
     |> List.find_opt (fun (s, _) -> find s name 1)
   with
   | Some (s, v) -> (s, v)
-  | None -> ("", "");;
+  | None -> ("", "")
