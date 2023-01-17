@@ -10,6 +10,7 @@ The structure is heavily inspired by OPAM the OCaml Package Manager.
 * `boulangerie try` execute the current project 
 * `boulangerie buy` install local libraries
 * `boulangerie storefront` list available libraries
+* `boulangerie buy --lib lib` install distant libraries
 
 ## Usage
 To use it in a B# file you just need to do a `LOAD <library>`, and it will load all the files of the library,
