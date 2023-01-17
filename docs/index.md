@@ -8,9 +8,8 @@ Currently implemented are
 * `boulangerie buy` which install local library under the lib files
 * `boulangerie storefront` which list all available libraries
 * `boulangerie buy --lib <library>` which install a library from the distant repository 
-
-## TODO
 * `boulangerie raise` which updates the local list of library from the server
 * `boulangerie raise --lib <library>` which update a library from the distant repository
-* `boulangerie knead` an alias for updating all currently installed libraries
+
+## TODO
 * `boulangerie bake` to publish your library!
