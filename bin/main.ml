@@ -4,12 +4,14 @@ type init_conf = { git : bool }
 type exec_conf = { verbose : bool }
 type install_conf = { lib : string }
 type color = { color : bool }
+type update = {lib : string}
 
 type cmd_conf =
   | Init of init_conf
   | Exec of exec_conf
   | Install of install_conf
   | List of color
+  | Update of update
 
 let run cmd =
   match cmd with
@@ -33,6 +35,19 @@ let run cmd =
           "this library does not exist you may need to update your local \
            repository"
   | List c -> Boulangerie.Listfiles.list_available_files_and_print_them c.color
+  | Update l -> 
+    if l.lib == "" then
+    (Boulangerie.Filemanager.init_list_file (); print_endline "The local repository has been updated")
+    else if Boulangerie.Listfiles.exists l.lib then
+      let n, version = Boulangerie.Listfiles.find_with_version l.lib in
+      let spl = String.split_on_char '/' n in
+      let spl = Array.of_list spl in
+      let github, name = (spl.(0), spl.(1)) in
+      Boulangerie.Parseboulangerie.install name github version
+    else
+      print_endline
+        "this library does not exist you may need to update your local \
+         repository";;
 
 let git_term =
   let info = Arg.info [ "git" ] ~doc:"Initialize an empty git repository" in
@@ -52,6 +67,11 @@ let color_term =
   let info = Arg.info [ "color" ] ~doc:"toggle color" in
   Arg.value (Arg.flag info)
 
+let lib_u_term = 
+  let info = 
+    Arg.info ["lib"] ~doc:"Install a distant library from the repository"
+  in Arg.value ((Arg.opt Arg.string) "" info)
+
 let init_term run =
   let combine git = Init { git } |> run in
   Term.(const combine $ git_term)
@@ -67,6 +87,10 @@ let install_term run =
 let list_term run =
   let combine color = List { color } |> run in
   Term.(const combine $ color_term)
+
+let update_term run =
+  let combine lib = Update {lib} |> run in 
+  Term.(const combine $ lib_u_term)
 
 let init_doc = "initialize an empty boulangerie project in the current folder"
 
@@ -115,9 +139,18 @@ let list run =
   let info = Cmd.info "storefront" ~doc:list_doc ~man:list_man in
   Cmd.v info (list_term run)
 
+let update_doc = "Update the local repository of libraries"
+let update_man = 
+  [
+    `S Manpage.s_description;
+    `P "Updates the local repository of libraries"
+  ]
+let update run = 
+  let info = Cmd.info "raise" ~doc:update_doc ~man:update_man in 
+  Cmd.v info (update_term run)
 let root_doc = "The Baguette# package and project manager"
 let root_info = Cmd.info "boulangerie" ~doc:root_doc
-let subcommand run = [ init run; exec run; install run; list run ]
+let subcommand run = [ init run; exec run; install run; list run; update run ]
 
 let parse_command_line_and_run (run : cmd_conf -> unit) =
   Cmd.group root_info (subcommand run) |> Cmd.eval |> exit
