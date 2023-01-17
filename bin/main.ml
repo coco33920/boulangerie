@@ -3,12 +3,13 @@ open Cmdliner
 type init_conf = { git : bool }
 type exec_conf = { verbose : bool }
 type install_conf = { lib : string }
+type color = {color: bool}
 
 type cmd_conf =
   | Init of init_conf
   | Exec of exec_conf
   | Install of install_conf
-  | List
+  | List of color
 
 let run cmd =
   match cmd with
@@ -20,9 +21,19 @@ let run cmd =
         let json = Boulangerie.Parseboulangerie.open_file () in
         let name = Boulangerie.Parseboulangerie.get_name json in
         let version = Boulangerie.Parseboulangerie.get_version json in
-        Boulangerie.Parseboulangerie.install name version)
-      else ()
-  | List -> Boulangerie.Listfiles.list_available_files_and_print_them ()
+        Boulangerie.Parseboulangerie.install_local name version)
+      else if Boulangerie.Listfiles.exists i.lib then
+        begin
+        let n, version = Boulangerie.Listfiles.find_with_version i.lib in
+        let spl = String.split_on_char '/' n in
+        let spl = Array.of_list spl in
+        let github, name = (spl.(0), spl.(1)) in
+        Boulangerie.Parseboulangerie.install name github version
+        end
+      else
+        print_endline
+          "this library does not exist you may need to update your local repository"
+  | List c -> Boulangerie.Listfiles.list_available_files_and_print_them c.color
 
 let git_term =
   let info = Arg.info [ "git" ] ~doc:"Initialize an empty git repository" in
@@ -38,6 +49,11 @@ let lib_term =
   in
   Arg.value ((Arg.opt Arg.string) "" info)
 
+let color_term = 
+  let info = 
+    Arg.info ["color"] ~doc:"toggle color"
+  in Arg.value (Arg.flag info)
+
 let init_term run =
   let combine git = Init { git } |> run in
   Term.(const combine $ git_term)
@@ -51,8 +67,8 @@ let install_term run =
   Term.(const combine $ lib_term)
 
 let list_term run =
-  let combine = List |> run in
-  Term.(const combine)
+  let combine color = List {color} |> run in
+  Term.(const combine $ color_term)
 
 let init_doc = "initialize an empty boulangerie project in the current folder"
 

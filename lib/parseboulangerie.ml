@@ -18,9 +18,26 @@ let is_installed name =
   | Some _ -> true
   | None -> false
 
-let install name version =
+let install_local name version =
   Filemanager.create_lib_name_dir name;
   FileUtil.cp [ "lib.baguette" ]
     (Filemanager.file_in_lib_dir name "lib.baguette");
   Filemanager.install_lib_dir name version;
   print_endline ("Library " ^ name ^ " has been installed")
+
+let install name github version =
+  let boulangerie_file =
+    "https://raw.githubusercontent.com/coco33920/boulangerie/master/repository/" ^ github
+    ^ "/" ^ name ^ "/" ^ version ^ "/boulangerie.json"
+  in
+  Sys.command ("wget -q " ^ boulangerie_file) |> ignore;
+  let json = from_file "boulangerie.json" in
+  let url = json |> member "url" |> to_string in
+  Sys.command ("wget -q " ^ url) |> ignore;
+  Sys.command ("unzip -q " ^ version ^ ".zip") |> ignore;
+  Sys.chdir (name ^ "-" ^ version);
+  install_local name (float_of_string version);
+  Sys.chdir ("../");
+  Sys.command ("rm -r " ^ version ^ ".zip") |> ignore;
+  Sys.command ("rm -r " ^ name ^ "-" ^ version) |> ignore;
+  Sys.command ("rm -r boulangerie.json") |> ignore;
