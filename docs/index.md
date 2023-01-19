@@ -11,5 +11,16 @@ Currently implemented are
 * `boulangerie raise` which updates the local list of library from the server
 * `boulangerie raise --lib <library>` which update a library from the distant repository
 
-## TODO
-* `boulangerie bake` to publish your library!
+## Publishing a library
+To publish your library, 
+
+* Release your library and add the url in your baguette file like in `coco33920/tartelettes/0.4/boulangerie.json`
+
+* fork this repository 
+
+* add in the `repository` folder your `boulangerie.json` file under `github/name/version`
+
+* add in the `repository.boulangerie` your library, like `github/name:version`
+
+* Commit, push, and pull request this repository !
+
