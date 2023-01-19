@@ -17,3 +17,16 @@ The structure is heavily inspired by OPAM the OCaml Package Manager.
 ## Usage
 To use it in a B# file you just need to do a `LOAD <library>`, and it will load all the files of the library,
 running `LOAD <library.file>` loads specifically the file specified.
+
+## Publishing a library
+To publish your library, 
+
+* Release your library and add the url in your baguette file like in `coco33920/tartelettes/0.4/boulangerie.json`
+
+* fork this repository 
+
+* add in the `repository` folder your `boulangerie.json` file under `github/name/version`
+
+* add in the `repository.boulangerie` your library, like `github/name:version`
+
+* Commit, push, and pull request this repository !

@@ -1,7 +1,7 @@
 (lang dune 3.0)
 
 (name boulangerie)
-(version alpha-0.0.3)
+(version 1.0.0)
 (generate_opam_files false)
 
 (source
