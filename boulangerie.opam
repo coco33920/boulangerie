@@ -6,7 +6,7 @@ description:
   "The World's first exotic language package manager: BOULANGERIE made for Baguette# (mostly as a joke)"
 maintainer: ["Charlotte Thomas"]
 authors: ["Charlotte Thomas"]
-license: "GPLv3"
+license: "GPL-3.0-or-later"
 homepage: "https://croissant.baguettesharp.fr/"
 bug-reports: "https://github.com/coco33920/boulangerie/issues"
 depends: [

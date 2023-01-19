@@ -11,7 +11,7 @@
 
 (maintainers "Charlotte Thomas")
 
-(license GPLv3)
+(license GPL-3.0-or-later)
 
 (homepage "https://croissant.baguettesharp.fr/")
 (package
