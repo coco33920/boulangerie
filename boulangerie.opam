@@ -12,7 +12,6 @@ bug-reports: "https://github.com/coco33920/boulangerie/issues"
 depends: [
   "ocaml" {>= "4.13.0"}
   "dune" {>= "3.0"}
-  "core"
   "yojson"
   "cmdliner" {>= "1.1.0"}
   "fileutils"
