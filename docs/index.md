@@ -8,7 +8,7 @@ lastest version of Baguette# to support *boulangerie* integration, (first versio
 ## Features
 Currently implemented are
 * `boulangerie enter` which initialize a new boulangerie project in the current repository
-* `boulangerie try` which execute with the baguettesharp executable the current project
+* `boulangerie taste` which execute with the baguettesharp executable the current project
 * `boulangerie buy` which install local library under the lib files
 * `boulangerie storefront` which list all available libraries
 * `boulangerie buy --lib <library>` which install a library from the distant repository 
