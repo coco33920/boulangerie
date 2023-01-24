@@ -13,7 +13,7 @@
 
 (license GPL-3.0-or-later)
 
-(homepage "https://croissant.baguettesharp.fr/")
+(homepage "https://boulangerie.baguettesharp.fr/")
 (package
  (name boulangerie)
  (synopsis "B# Package Manager")
