@@ -10,7 +10,7 @@ Boulangerie is in the *OPAM* repository you can install boulangerie with `opam i
 
 ## Features implemented
 * `boulangerie enter` initialize a new project
-* `boulangerie try` execute the current project 
+* `boulangerie taste` execute the current project 
 * `boulangerie buy` install local libraries
 * `boulangerie storefront` list available libraries
 * `boulangerie buy --lib lib` install a distant library

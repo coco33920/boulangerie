@@ -115,7 +115,7 @@ let exec_man =
   ]
 
 let exec run =
-  let info = Cmd.info "try" ~doc:exec_doc ~man:exec_man in
+  let info = Cmd.info "taste" ~doc:exec_doc ~man:exec_man in
   Cmd.v info (exec_term run)
 
 let install_doc = "install the current or a distant library"
