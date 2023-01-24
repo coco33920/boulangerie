@@ -16,7 +16,7 @@ Currently implemented are
 * `boulangerie raise --lib <library>` which update a library from the distant repository
 
 ## Usage
-Just type `LOAD PARISBREST library PARISBREST` to load in a file your library (the lib.baguette file) !
+Just type `LAUGEWECKLE PARISBREST library PARISBREST` to load in a file your library (the lib.baguette file) !
 
 ## Publishing a library
 To publish your library, 
