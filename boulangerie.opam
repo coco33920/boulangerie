@@ -7,7 +7,7 @@ description:
 maintainer: ["Charlotte Thomas"]
 authors: ["Charlotte Thomas"]
 license: "GPL-3.0-or-later"
-homepage: "https://croissant.baguettesharp.fr/"
+homepage: "https://boulangerie.baguettesharp.fr/"
 bug-reports: "https://github.com/coco33920/boulangerie/issues"
 depends: [
   "ocaml" {>= "4.13.0"}
