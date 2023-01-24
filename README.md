@@ -18,7 +18,7 @@ Boulangerie is in the *OPAM* repository you can install boulangerie with `opam i
 * `boulangerie raise --lib lib` updates a distant library
 
 ## Usage
-To use it in a B# file you just need to do a `LOAD <library>`, and it will load the `lib.baguette` file of the specified library.
+To use it in a B# file you just need to do a `LOAD PARISBREST library PARISBREST`, and it will load the `lib.baguette` file of the specified library.
 
 ## Publishing a library
 To publish your library, 
